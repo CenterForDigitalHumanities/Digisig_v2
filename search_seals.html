@@ -19,7 +19,6 @@
 		//default behavior is to close the accordion...
 		var filtersign = "-";
 		var displaystatus = "block";
-		alert("button pushed");
 
 		//respository filter
 		if (button_name == 'repository_form') {
@@ -101,7 +100,6 @@
 		}
 	}
 
-
 	function repositoryFunction() {
 		document.getElementById("series").selectedIndex = "0";
 		var x = document.getElementById("repository").value;
@@ -129,13 +127,14 @@
 		var filterterms = filterterms + "nature is" + nature_name;
 		var filterterms = filterterms + "location is" + location_name;
 		var filterterms = filterterms + "date is" + date_name;
-
 		document.getElementById("filter").innerHTML = filterterms; 
 	}
-
 </script>
 
 </head>
+
+
+
 
 <body>
 
@@ -179,8 +178,11 @@
 
 	<div class="sidebar">
 		<h2>Filter</h2>
-		<label for="repository">Repository</label><button id="repository_filter_button" onclick="filter_button('repository_form')">+</button>
+		<div class="filteroption">
+		<label for="repository">Repository</label>
+		<button id="repository_filter_button" onclick="filter_button('repository_form')">+</button>
 		<form id="repository_form" style="display:none" onchange="repositoryFunction()">
+			<br>
 			<input type="radio" id="repository_24" name="repository_24" value="24">Bangor University, Archives and Special Collections<br>
 			<input type="radio" id="repository_3" name="repository_3" value="3">British Library<br>
 			<input type="radio" id="repository_37" name="repository_37" value="37">British Museum<br>
@@ -213,8 +215,12 @@
 			<input type="radio" id="repository_35" name="repository_35" value="35">UNKNOWN<br>
 			<input type="radio" id="repository_32" name="repository_32" value="32">Wells City Archives<br>
 			<input type="radio" id="repository_10" name="repository_10" value="10">Westminster Abbey Muniment Room<br>
-		</form><br>
-		<label for="series">Series or collection</label><button id="series_filter_button" onclick="filter_button('series_form')">+</button>
+		</form>
+		</div>
+
+		<div class="filteroption">
+		<label for="series" style="opacity:0.6;">Series or collection</label>
+		<button id="series_filter_button" onclick="filter_button('series_form')" style="cursor:not-allowed;">+</button>
 		<form id="series_form" style="display:none">
 			<select id="series" name="series">
 				<option value = "" selected></option>
@@ -408,24 +414,33 @@
 				<option value="281" id="repository_18">WYNNSTAY, Strata Marchella</option>
 				<option value="272" id="repository_23">XD2</option>
 			</select>						
-		</form><br>
-		<label for="photograph">Photograph</label><button id="photograph_filter_button" onclick="filter_button('photograph_form')">+</button>
+		</form>
+		</div>
+
+		<div class="filteroption">
+		<label for="photograph">Photograph</label>
+		<button id="photograph_filter_button" onclick="filter_button('photograph_form')">+</button>
 		<form id="photograph_form" style="display:none">
 			<input type="radio" id="photograph_type" name="photograph_type" value="RTI">RTI<br>
 			<input type="radio" id="photograph_type" name="photograph_type" value="Conventional">Conventional<br>
 			<input type="radio" id="photograph_type" name="photograph_type" value="No photograph">No photograph<br>
-		</form><br>
+		</form>
+		</div>
 
-		<label for="nature">Nature</label><button id="nature_filter_button" onclick="filter_button('nature_form')">+</button>
+		<div class="filteroption">
+		<label for="nature">Nature</label>
+		<button id="nature_filter_button" onclick="filter_button('nature_form')">+</button>
 		<form id="nature_form" style="display:none">
 			<input type="radio" id="nature" name="nature" value="impression">impression<br>
 			<input type="radio" id="nature" name="nature" value="cast">cast<br>
 			<input type="radio" id="nature" name="nature" value="matrix">matrix<br>
-		</form><br>
+		</form>
+		</div>
 
-		<label for="location">Location</label><button id="location_filter_button" onclick="filter_button('location_form')">+</button>
+		<div class="filteroption">
+		<label for="location">Location</label>
+		<button id="location_filter_button" onclick="filter_button('location_form')">+</button>
 		<form id="location_form" style="display:none">
-			<label for="Location" onchange="selectedOptions()">Location (county):</label><br>
 			<select id="location" name="location">
 				<option value="99999" selected></option>
 				<option value="85">Anglesey</option>
@@ -493,9 +508,12 @@
 				<option value="77">Worcestershire</option>
 				<option value="76">Yorkshire</option>
 			</select>
-		</form><br>
+		</form>
+		</div>
 
-		<label for="date">Date</label><button id="date_filter_button" onclick="filter_button('date_form')">+</button>			
+		<div class="filteroption">
+		<label for="date">Date</label>
+		<button id="date_filter_button" onclick="filter_button('date_form')">+</button>			
 		<form id="date_form" style="display:none">
 			<select id="date" name="date">
 				<option value="99999" selected></option>
@@ -504,6 +522,8 @@
 				<option value="14">14th century</option>								
 			</select>
 		</form>
+		</div>
+
 	</div>
 				
 	<div class="results" id="mainpage">
